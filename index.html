@@ -417,7 +417,7 @@
     <h2>
      Contact Us
     </h2>
-    <form action="#" aria-describedby="contact-desc" method="post" novalidate="">
+    <form id="messageForm">
      <p id="contact-desc" style="max-width:600px; margin: 0 auto 1rem; color:#a0a0a0; font-size:0.9rem;">
       Fill out the form below and we will get back to you as soon as possible.
      </p>
@@ -495,5 +495,80 @@
     });
   });
   </script>
+
+
+
+
+
+
+<!-- This is the start of the form -->
+ <!-- contact us script this needs to send ajith gmail and other two -->
+
+ <script>
+    document.getElementById("messageForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const message = document.getElementById("message").value;
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      fetch("https://script.google.com/macros/s/AKfycbzJkMHIvv7u1P-7mTg59fSH5hxd1D6vV-Ne6Kdb_GNnyrrXdzRdlWi5kWREubgTGRRqDw/exec", {  // 🔁 Replace with your Web App URL
+        method: "POST",
+        body: new URLSearchParams({ 
+          message,
+          name,
+          email
+
+
+         })
+        
+      })
+      .then(response => response.text())
+      .then(data => {
+        alert("Message sent! WE WILL REACH YOU SOON");
+      })
+      .catch(error => {
+        alert("Error sending message.");
+        console.error(error);
+      });
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  </body>
 </html>
