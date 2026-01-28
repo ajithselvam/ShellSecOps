@@ -419,5 +419,58 @@ label {
     
   </footer>
 
+
+
+
+
+
+
+       <!-- This is the start of the form -->
+ <!-- contact us script this needs to send ajith gmail and other two -->
+
+ <script>
+    document.getElementById("messageForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const message = document.getElementById("message").value;
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      fetch("https://script.google.com/macros/s/AKfycbzJkMHIvv7u1P-7mTg59fSH5hxd1D6vV-Ne6Kdb_GNnyrrXdzRdlWi5kWREubgTGRRqDw/exec", {  // 🔁 Replace with your Web App URL
+        method: "POST",
+        body: new URLSearchParams({ 
+          message,
+          name,
+          email
+
+
+         })
+        
+      })
+      .then(response => response.text())
+      .then(data => {
+        alert("Message sent! WE WILL REACH YOU SOON");
+      })
+      .catch(error => {
+        alert("Error sending message.");
+        console.error(error);
+      });
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
 </body>
 </html>
